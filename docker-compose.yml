@@ -1,0 +1,6 @@
+version: "2"
+services:
+ mongo:
+  image: 172.23.238.253:5000/mongo 
+  ports:
+    - 27017:27017

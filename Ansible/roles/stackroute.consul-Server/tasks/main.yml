@@ -1,0 +1,28 @@
+---
+# tasks file for stackroute.counsl-Server
+
+- name: Copy consul Server service file
+  copy: 
+    src: ../files/consul.service 
+    dest: /etc/systemd/system 
+    mode: 0755
+
+- name: Copy consul Server bash file
+  copy: 
+    src: ../files/startConsulServer.sh 
+    dest: /etc/systemd/system 
+    mode: 0755
+    
+- name: Reload the Daemon
+  shell: >
+     systemctl daemon-reload
+
+- name: Enable the service
+  shell: >
+    systemctl enable consul.service
+
+- name: Start the consul Server
+  shell: >
+    systemctl start consul    
+
+ 
